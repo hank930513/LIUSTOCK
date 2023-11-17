@@ -1,0 +1,59 @@
+/* styles.css */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+    background-color: #211a908a;
+    
+  margin: 0;
+  padding: 20px;
+}
+
+
+h2 {
+  color: rgb(181, 35, 13);
+  text-align: center;
+    font-size: 30px
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+  border: 1px solid #040303;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #007bff;
+  color: #100a0a;
+}
+
+td {
+  background-color: #ffffff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* 鼠标悬停时改变颜色 */
+tr:hover {
+  background-color: #ddd;
+}
+
+/* 添加响应式设计 */
+@media(max-width: 600px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}

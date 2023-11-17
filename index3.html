@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style3.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>定期定額複利計算機</title>
+
+<body>
+<div class="calculator">
+    <h2>定期定額計算機</h2>
+    <input type="number" id="contribution" placeholder="每期投資金額" /><br>
+    <input type="number" id="rate" placeholder="年利率 (例如：5% 輸入 5)" /><br>
+    <input type="number" id="periods" placeholder="投資期數 (月)" /><br>
+    <button onclick="calculateCompoundInterest()">計算</button>
+    <p id="result"></p>
+    <p id="result1"></p>
+    <p id="result2"></p>
+</div>
+
+<script>
+function calculateCompoundInterest() {
+    // 獲取用戶輸入的值
+    var P = document.getElementById('contribution').value;
+    var r = document.getElementById('rate').value / 100 / 12; // 將年利率轉化為每期利率
+    var n = document.getElementById('periods').value;
+
+
+    
+    // 計算複利
+    var FV = P * (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+    var totalInvestment = P * n; // 總投資本金
+    var profit = FV - totalInvestment; // 投資獲利
+
+    
+    // 顯示結果
+    document.getElementById('result').innerHTML = '投資總金額：' + FV.toFixed(2)+'元' +
+                                                  '<br>總投資本金為：' + totalInvestment.toFixed(2)+'元' +
+                                                  '<br>投資獲利為：' + profit.toFixed(2)+'元';
+    
+}
+</script>
+
+</body>
+</html>

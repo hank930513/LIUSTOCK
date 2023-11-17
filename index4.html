@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="style4.css">
+<title>我的最愛</title>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+
+<h2>我的最愛</h2>
+<table id="stockTable">
+  <tr>
+    <th>股票代號</th>
+    <th>公司簡稱</th>
+    <th>成交價</th>
+    <th>成交量</th>
+    <th>累積成交量</th>
+    <th>開盤價</th>
+    <th>最高價</th>
+    <th>最低價</th>
+    <th>昨收價</th>
+    <th>漲跌百分比</th>
+    <th>資料更新時間</th>
+  </tr>
+</table>
+
+<script>
+
+function fetchStockData() {
+    fetch('http://localhost:5000/get_stock_data')
+        .then(response => response.json())
+        .then(data => {
+            const table = document.getElementById('stockTable');
+            data.forEach(stock => {
+                const row = table.insertRow(-1); // 在表格末尾插入一行
+                // 显式指定每个单元格的数据
+                row.insertCell(-1).textContent = stock['股票代號'] || '';
+                row.insertCell(-1).textContent = stock['公司簡稱'] || '';
+                row.insertCell(-1).textContent = stock['成交價'] || '';
+                row.insertCell(-1).textContent = stock['成交量'] || '';
+                row.insertCell(-1).textContent = stock['累積成交量'] || '';
+                row.insertCell(-1).textContent = stock['開盤價'] || '';
+                row.insertCell(-1).textContent = stock['最高價'] || '';
+                row.insertCell(-1).textContent = stock['最低價'] || '';
+                row.insertCell(-1).textContent = stock['昨收價'] || '';
+                row.insertCell(-1).textContent = stock['漲跌百分比'] || '';
+                row.insertCell(-1).textContent = stock['資料更新時間'] || '';
+            });
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+document.addEventListener('DOMContentLoaded', fetchStockData); // 确保文档加载完成后调用函数
+</script>
+
+</script>
+
+</body>
+</html>

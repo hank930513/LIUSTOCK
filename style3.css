@@ -1,0 +1,32 @@
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #211a908a;
+
+  }
+ 
+  .calculator {
+    text-align: center;
+    background-color: #0c0808;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(234, 232, 232, 0.1);
+    color: rgb(246, 242, 242);
+  }
+  input[type="number"], button {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #f1e9e9;
+    border-radius: 4px;
+    width: 200px;
+  }
+  button {
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+  }
